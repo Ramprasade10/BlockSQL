@@ -1,0 +1,74 @@
+--giving different usns for people with same usns
+update marks set usn='6' where usn='1' and section='A'
+update marks set usn='7' where usn='2' and section='A'
+update marks set usn='8' where usn='3' and section='A'
+update marks set usn='9' where usn='4' and section='A'
+update marks set usn='10' where usn='5' and section='A'
+ 
+
+--remove student_name
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    sem         INTEGER (1)  NOT NULL,
+    section     VARCHAR (1)  NOT NULL,
+    usn         VARCHAR (10) NOT NULL,
+    course_code VARCHAR (6)  NOT NULL,
+    grade       VARCHAR (2),
+    grade_point REAL (4, 2),
+    credits     REAL (2, 1),
+    int1        INTEGER (2),
+    int2        INTEGER (2),
+    int3        INTEGER (2),
+    cie         INTEGER (2),
+    see         INTEGER (3),
+    total_marks INTEGER (3) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2,
+                      int3,
+                      cie,
+                      see,
+                      total_marks
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2,
+                         int3,
+                         cie,
+                         see,
+                         total_marks
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;

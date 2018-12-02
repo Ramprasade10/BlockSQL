@@ -1,0 +1,5 @@
+--added login_ledger and course table, put this in the beginning
+create table if not exists course(course_code varchar(6) primary key ,course_name varchar(30) not null,credits float(2,1) not null);
+
+
+create table if not exists login_ledger(usn varchar(10) not null,user_type varchar(10) not null,log_in TIMESTAMP not null, log_out TIMESTAMP );   

@@ -1,0 +1,22 @@
+--Done--
+--query to get teacher councellsor name through FK
+--calcualte all the stuff in python and insert
+--select query into course table to find credits
+--based on total marks decide the grade and grade point(create a dictionary)
+--convert html into iterable code for transcript
+--add data for int1-3,cie,etc to marks table for the data imported
+--populate the course table for subjects already in the DB
+--add students details for all usns(1-10)
+--add a few dummy teacher details and admins(do this after db finalized)
+--calculation of cgpa and sgpa
+--check edge conditions in check_integrity
+--add check integrity button and display in a new html
+--add photo upload to student and teachers admission and diaply in transscript
+--Include processing of data given into our table step by step 
+--insert_student_marks,testing
+--update_student_details and marks
+--add blockparts where needed and test
+--generate student deatils random data for new data
+
+
+

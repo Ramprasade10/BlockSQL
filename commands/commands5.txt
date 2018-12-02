@@ -1,0 +1,235 @@
+
+--added blockchain implementation columns to table student_details(time_stamp,prev_block_hash,block_hash)
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM student_details;
+
+DROP TABLE student_details;
+
+CREATE TABLE student_details (
+    sgpa1                FLOAT (4, 2),
+    sgpa2                FLOAT (4, 2),
+    sgpa3                FLOAT (4, 2),
+    sgpa4                FLOAT (4, 2),
+    sgpa5                FLOAT (4, 2),
+    sgpa6                FLOAT (4, 2),
+    sgpa7                FLOAT (4, 2),
+    sgpa8                FLOAT (4, 2),
+    cgpa                 FLOAT (4, 2),
+    usn                  VARCHAR (10),
+    sem                  INTEGER (1),
+    branch               VARCHAR (45),
+    email                VARCHAR (30)  UNIQUE,
+    phone_no             INTEGER (10)  UNIQUE,
+    year_start           DATE,
+    year_end             DATE,
+    fathers_name         VARCHAR (50),
+    counselor_teacher_id VARCHAR (10)  REFERENCES teacher_details (teacher_id),
+    time_stamp           TIMESTAMP,
+    prev_block_hash      VARCHAR (100),
+    block_hash           VARCHAR (100) 
+);
+
+INSERT INTO student_details (
+                                sgpa1,
+                                sgpa2,
+                                sgpa3,
+                                sgpa4,
+                                sgpa5,
+                                sgpa6,
+                                sgpa7,
+                                sgpa8,
+                                cgpa,
+                                usn,
+                                sem,
+                                branch,
+                                email,
+                                phone_no,
+                                year_start,
+                                year_end,
+                                fathers_name,
+                                counselor_teacher_id
+                            )
+                            SELECT sgpa1,
+                                   sgpa2,
+                                   sgpa3,
+                                   sgpa4,
+                                   sgpa5,
+                                   sgpa6,
+                                   sgpa7,
+                                   sgpa8,
+                                   cgpa,
+                                   usn,
+                                   sem,
+                                   branch,
+                                   email,
+                                   phone_no,
+                                   year_start,
+                                   year_end,
+                                   fathers_name,
+                                   counselor_teacher_id
+                              FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+--added blockchain implementation columns to table marks(time_stamp,prev_block_hash,block_hash)
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year     VARCHAR (10),
+    result_type     VARCHAR (7),
+    branch          VARCHAR (3),
+    sem             INTEGER (1)   NOT NULL,
+    section         VARCHAR (1)   NOT NULL,
+    usn             VARCHAR (10)  NOT NULL,
+    course_code     VARCHAR (6)   NOT NULL,
+    grade           VARCHAR (2),
+    grade_point     FLOAT (4, 2),
+    credits         FLOAT (2, 1),
+    int1            INTEGER (2),
+    int2            INTEGER (2),
+    int3            INTEGER (2),
+    cie             INTEGER (2),
+    see             INTEGER (3),
+    total_marks     INTEGER (3),
+    time_stamp      TIMESTAMP,
+    prev_block_hash VARCHAR (100),
+    block_hash      VARCHAR (100) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2,
+                      int3,
+                      cie,
+                      see,
+                      total_marks
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2,
+                         int3,
+                         cie,
+                         see,
+                         total_marks
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+-- added pwd field to student_details
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM student_details;
+
+DROP TABLE student_details;
+
+CREATE TABLE student_details (
+    sgpa1                FLOAT (4, 2),
+    sgpa2                FLOAT (4, 2),
+    sgpa3                FLOAT (4, 2),
+    sgpa4                FLOAT (4, 2),
+    sgpa5                FLOAT (4, 2),
+    sgpa6                FLOAT (4, 2),
+    sgpa7                FLOAT (4, 2),
+    sgpa8                FLOAT (4, 2),
+    cgpa                 FLOAT (4, 2),
+    usn                  VARCHAR (10),
+    student_name      VARCHAR (30) NOT NULL,
+    pwd                  VARCHAR (100),
+    sem                  INTEGER (1),
+    section              VARCHAR (1)  NOT NULL,
+    branch               VARCHAR (45),
+    email                VARCHAR (30)  UNIQUE,
+    phone_no             INTEGER (10)  UNIQUE,
+    year_start           DATE,
+    year_end             DATE,
+    fathers_name         VARCHAR (50),
+    counselor_teacher_id VARCHAR (10)  REFERENCES teacher_details (teacher_id),
+    time_stamp           TIMESTAMP,
+    prev_block_hash      VARCHAR (100),
+    block_hash           VARCHAR (100) 
+);
+
+INSERT INTO student_details (
+                                sgpa1,
+                                sgpa2,
+                                sgpa3,
+                                sgpa4,
+                                sgpa5,
+                                sgpa6,
+                                sgpa7,
+                                sgpa8,
+                                cgpa,
+                                usn,
+				student_name,      
+                                sem,
+				section,
+                                branch,
+                                email,
+                                phone_no,
+                                year_start,
+                                year_end,
+                                fathers_name,
+                                counselor_teacher_id,
+                                time_stamp,
+                                prev_block_hash,
+                                block_hash
+                            )
+                            SELECT sgpa1,
+                                   sgpa2,
+                                   sgpa3,
+                                   sgpa4,
+                                   sgpa5,
+                                   sgpa6,
+                                   sgpa7,
+                                   sgpa8,
+                                   cgpa,
+                                   usn,
+				   student_name,      
+                                   sem,
+                                   section,
+				   branch,
+                                   email,
+                                   phone_no,
+                                   year_start,
+                                   year_end,
+                                   fathers_name,
+                                   counselor_teacher_id,
+                                   time_stamp,
+                                   prev_block_hash,
+                                   block_hash
+                              FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+

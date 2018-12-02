@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teachers Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="/teachers_portal">Dashboard</a><br>
+    <a href="/update_student_marks">Update Student Marks </a><br>
+            <a href="/insert_student_marks">Insert Student Marks </a><br>
+  <a href="/question_papers">Upload Question Papers</a><br>
+
+  </div>
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+ <br>
+<h2 align="center">Teachers Dashboard</h2>
+<img src="static/user.png" alt="teacher" width=100 height=100>
+<table align="center" style="width:100%">
+<tr>
+<td colspan="50">Name : {{details['teacher_name']}}</td>
+<td colspan="50">Designation : {{details['designation']}} </td>
+</tr><br><br><br><br><br>
+<tr>
+<td colspan="50">Email : {{details['email']}}</td>
+<td colspan="50">Branch : {{details['branch']}}</td>
+</tr>
+<tr>
+<td colspan="50">DOJ : {{details['doj']}}</td>
+<td colspan="50">Phone No. : {{details['phone_no']}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

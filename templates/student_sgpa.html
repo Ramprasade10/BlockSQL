@@ -1,0 +1,33 @@
+<html>
+<body>
+
+</body>
+</html>
+
+
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Student SGPA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+</head> 
+<body>
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/student_sgpa">Student SGPA</a><br>
+<a href="/student_internal">Student Internal</a><br>
+</div>
+
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+<br>
+<h2 align="center">SGPA Comparison</h2>
+
+<br><br><br>
+<img src="data:image/png;base64, {{ plot_url }}">
+</div>
+</body>
+</html>

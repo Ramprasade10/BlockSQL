@@ -1,0 +1,48 @@
+<html>
+<body>
+
+</body>
+</html>
+
+
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Student Internal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+</head> 
+<body>
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/student_sgpa">Student SGPA</a><br>
+<a href="/student_internal">Student Internal</a><br>
+</div>
+
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+<br>
+<h2 align="center">Student Internal</h2>
+
+<br><br><br>
+<form action="/student_internal" method="post">
+ <select name="sem">
+ <option value=""></option>
+                <option value="1">Sem 1</option>
+                <option value="2">Sem 2</option>
+                <option value="3">Sem 3</option>
+                <option value="4">Sem 4</option> 
+                <option value="5">Sem 5</option>
+                <option value="6">Sem 6</option> 
+                <option value="7">Sem 7</option> 
+                <option value="8">Sem 8</option>   
+</select>
+<br><br>
+<input type="submit" name="" value="Submit">
+</form>
+<img src="data:image/png;base64, {{ plot_url }}">
+</div>
+</body>
+</html>

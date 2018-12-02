@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Request Provisional Markscard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+<!--
+<style>
+
+#button {
+line-height: 12px;
+width: 70px;
+font-size: 8pt;
+font-family: tahoma;
+margin-top: 10px;
+margin-right: 80px;
+position:absolute;
+top:0;
+right:0;
+}
+</style>
+-->
+</head> 
+<body>
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/results">Results</a><br>
+<a href="/generate_transcript">Transcript</a><br>
+<a href="/provisional_marks_card">Provisional Markscard</a><br>
+<a href="/update_student_details">Update Details</a><br>
+</div>
+<div class="main"> 
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+
+<form action="/provisional_marks_card" method="post">
+  <select name="sem">
+  <option value="1">Sem1</option>
+  <option value="2">Sem2</option>
+  <option value="3">Sem3</option>
+  <option value="4">Sem4</option>
+  <option value="5">Sem5</option>
+  <option value="6">Sem6</option>
+  <option value="7">Sem7</option>
+  <option value="8">Sem8</option>
+</select><br>
+<input type="submit" name="" value="Request Provisional Markscard">
+   </form>
+   <br><br>
+   {{message}}
+   </div>
+ </body>
+</html>    

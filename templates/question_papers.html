@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teachers Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+</head>
+<body>
+<div class="sidenav">
+  <a href="/teachers_portal">Dashboard</a><br>
+    <a href="/update_student_marks">Update Student Marks </a><br>
+<a href="/insert_student_marks">Insert Student Marks </a><br>
+  <a href="/question_papers">Upload Question Papers</a><br>
+  </div>
+<div class="main">
+<form action="/question_papers" method="post">
+ <select name="Semester">
+                <option value="">Semester</option>
+                <option value="sem1">Sem 1</option>
+                <option value="sem2">Sem 2</option>
+                <option value="sem3">Sem 3</option>
+                <option value="sem4">Sem 4</option> 
+                <option value="sem5">Sem 5</option>
+                <option value="sem6">Sem 6</option> 
+                <option value="sem7">Sem 7</option> 
+                <option value="sem8">Sem 8</option>   
+</select>
+<select name="Branch">
+                <option value="">Branch</option>
+                <option value="MECH">Mech</option>
+                <option value="CSE">CSE</option>
+                <option value="EC">EC</option>  
+</select>
+<br><br>
+<input type="submit" name="" value="Submit">
+</form>
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+ <br>
+<h2 align="center">Upload Question Papers and Resources</h2>
+    <form method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+</body>
+</html>

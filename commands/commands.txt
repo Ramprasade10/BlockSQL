@@ -1,0 +1,79 @@
+
+alter table marks add column int1 int;
+alter table marks add column int2 int;
+alter table marks add column int3 int;
+alter table marks add column cie int;
+alter table marks add column see int;
+alter table marks add column total_marks int;
+
+--column8 to course_code
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM ram;
+
+DROP TABLE ram;
+
+CREATE TABLE ram (
+    result_year,
+    result_type,
+    branch       VARCHAR,
+    sem          INTEGER,
+    section      VARCHAR,
+    usn          VARCHAR,
+    student_name VARCHAR,
+    course_code  VARCHAR (6) PRIMARY KEY,
+    column9,
+    column10,
+    column11,
+    column12,
+    int1         INT,
+    int2         INT,
+    int3         INT,
+    cie          INT,
+    course_code  VARCHAR (6) 
+);
+
+INSERT INTO ram (
+                    result_year,
+                    result_type,
+                    branch,
+                    sem,
+                    section,
+                    usn,
+                    student_name,
+                    course_code,
+                    column9,
+                    column10,
+                    column11,
+                    column12,
+                    int1,
+                    int2,
+                    int3,
+                    cie,
+                    course_code
+                )
+                SELECT result_year,
+                       result_type,
+                       branch,
+                       sem,
+                       section,
+                       usn,
+                       student_name,
+                       column8,
+                       column9,
+                       column10,
+                       column11,
+                       column12,
+                       int1,
+                       int2,
+                       int3,
+                       cie,
+                       course_code
+                  FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Update Teacher Details</title>
+<link rel="stylesheet" href="static/app.css"></head>
+    </head>
+
+
+
+ <body>
+<div class="sidenav">
+<a href="/ledger">Login Ledger</a><br>
+<a href="/execute_query">Execute Query</a><br>
+<a href="/check_integrity">Check Integrity</a><br>
+<a href="/student_admission">Student Admission</a><br>
+<a href="/add_teacher">Add teacher</a><br>
+</div>      
+ <div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>     
+   <h1 align="center">Add Teacher Details</h1>
+
+   <form class="" action="/add_teacher" method="post"> 
+<table align= "center" style="width:100%">
+<tr>
+<td colspan="50"><h3>Teacher Name: </h3><br>
+     <input type="text" name="teacher_name" value=""></td><br>
+<td colspan="50"><h3>Designation: </h3><br>
+     <input type="text" name="designation" value=""></td><br>
+ <td colspan="50"><h3>Date of Joining</h3><br>
+     <input type="text" name="doj" value=""></td><br>
+</tr>
+
+<tr>
+<td colspan="50"><h3>Teacher ID</h3><br>
+     <input type="text" name="teacher_id" value=""></td><br>
+<td colspan="50"><h3>Branch</h3><br>
+     <input type="text" name="branch" value=""></td><br>
+</tr>
+
+<tr>
+<td colspan="50"><h3>Mobile No.</h3><br>
+     <input type="text" name="phone_no" value=""></td><br>
+<td colspan="50"><h3>Email ID</h3><br>
+     <input type="text" name="email" value=""></td><br>
+
+</tr>
+</table><br><br>
+          <input type="submit" name="" value="Update">
+   </form>
+   <br>
+   {{ message }}
+ </body>
+</html>

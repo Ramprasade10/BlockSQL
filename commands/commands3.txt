@@ -1,0 +1,14 @@
+update marks set int1=23,int2=24,int3=23,cie=47,see=92,total_marks=93 where grade='S'
+update marks set int1=19,int2=20,int3=19,cie=39,see=78,total_marks=78 where grade='A'
+update marks set int1=16,int2=17,int3=17,cie=34,see=62,total_marks=65 where grade='B'
+update marks set int1=14,int2=13,int3=15,cie=29,see=52,total_marks=55 where grade='C'
+update marks set int1=13,int2=13,int3=12,cie=25,see=41,total_marks=46 where grade='D'
+update marks set int1=13,int2=13,int3=15,cie=28,see=8,total_marks=32 where grade='F'
+update marks set int1=13,int2=6,int3=7,cie=20,see=0,total_marks=0 where grade='W'
+update marks set int1=21,int2=22,int3=22,cie=44,see=42,total_marks=86 where grade='PP'
+update marks set int1=12,int2=13,int3=12,cie=25,see=4,total_marks=29 where grade='NP'
+
+
+
+DELETE FROM marks
+      WHERE result_year = 'result_year'

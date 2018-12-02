@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Check Integrity</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css"></head>
+</head> 
+<body>
+<div class="sidenav">
+<a href="/ledger">Login Ledger</a><br>
+<a href="/execute_query">Execute Query</a><br>
+<a href="/check_integrity">Check Integrity</a><br>
+<a href="/student_admission">Student Admission</a><br>
+<a href="/add_teacher">Add teacher</a><br>
+
+</div>
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+<br>
+<h2 align=center>Check Integrity</h2>
+<br><br>  
+<form action="/check_integrity" method="post">
+<input type="submit" name="" value="Check Integrity">
+   </form>
+   <br><br>
+   {{integrity}}
+   </div>
+<br><br>
+ 
+</div>
+</body>
+</html>

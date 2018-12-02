@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Student Portal</title>
+<link rel="stylesheet" href="static/app.css"></head>
+<body>    
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/results">Results</a><br>
+<a href="/generate_transcript">Transcript</a><br>
+<a href="/provisional_marks_card">Provisional Markscard</a><br>
+<a href="/question_papers">Question Papers</a><br>
+</div>                   
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+
+<h2>PREVIOUS RESULTS</h2>
+<form action="/results" method="post">
+ <select name="sem">
+ <option value=""></option>
+                <option value="1">Sem 1</option>
+                <option value="2">Sem 2</option>
+                <option value="3">Sem 3</option>
+                <option value="4">Sem 4</option> 
+                <option value="5">Sem 5</option>
+                <option value="6">Sem 6</option> 
+                <option value="7">Sem 7</option> 
+                <option value="8">Sem 8</option>   
+</select>
+<select name="grade">
+ <option value=""></option>
+                <option value="F">F</option>
+                <option value="W">W</option>
+                <option value="PP">PP</option>
+                  <option value="NP">NP</option>
+</select>
+<br><br>
+<input type="submit" name="" value="Submit">
+</form>
+ <div>
+       <table border = 1 style="width:100%">
+         <thead>
+            <td>Course Name</td>
+            <td>Course Code</td>
+            <td>Internals-1</td>
+            <td>Internals-2</td>
+            <td>Internals-3</td>
+            <td>CIE</td>
+            <td>SEE</td>
+            <td>Grade</td>            
+            <td>Credits</td>
+
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+            <td>{{row["course_name"]}}</td>
+               <td>{{row["course_code"]}}</td>
+               <td>{{row['int1']}}</td>
+               <td> {{row['int2']}}</td>
+               <td>{{row['int3']}}</td>	
+                <td>{{row['cie']}}</td>
+                <td>{{row['see']}}</td>
+                <td>{{row['grade']}}</td>
+               <td>{{row['credits']}}</td>	
+            </tr>
+         {% endfor %}
+      </table>
+      
+</body>
+</html> 
+
+

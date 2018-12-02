@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Database Administrator Dashboard</title>
+<link rel="stylesheet" href="static/app.css">
+<!-- 
+<style>
+#button {
+line-height: 12px;
+width: 70px;
+font-size: 8pt;
+font-family: tahoma;
+margin-top: 10px;
+margin-right: 80px;
+position:absolute;
+top:0;
+right:0;
+}
+
+</style>
+-->
+</head>
+ <body>
+<div class="sidenav">
+<a href="/ledger">Login Ledger</a><br>
+<a href="/execute_query">Execute Query</a><br>
+<a href="/check_integrity">Check Integrity</a><br>
+<a href="/student_admission">Student Admission</a><br>
+<a href="/add_teacher">Add teacher</a><br>
+</div>                   
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+
+   <h1 align="center">Student Admission</h1>
+   <form class="" action="/student_admission" method="post" enctype=multipart/form-data> 
+<table align= "center" style="width:100%">
+<tr>
+<td colspan="50"><h3>Student Name</h3><br>
+     <input type="text" name="student_name" value=""></td><br>
+<td colspan="50"><h3>Academic Year Start</h3><br>
+     <input type="text" name="year_start" value=""></td><br>
+<td colspan="50"><h3>Fathers Name</h3><br>
+     <input type="text" name="fathers_name" value=""></td><br>
+<td colspan="50"><h3>USN</h3><br>
+     <input type="text" name="usn" value=""></td><br>
+</tr>
+<tr>
+<td colspan="50"><h3>Sem</h3><br>
+     <input type="text" name="sem" value=""></td><br>
+<td colspan="50"><h3>Section</h3><br>
+     <input type="text" name="section" value=""></td><br>
+<td colspan="50"><h3>Branch</h3><br>
+     <input type="text" name="branch" value=""></td><br>
+</tr>
+
+<tr>
+<td colspan="50"><h3>Mobile No.</h3><br>
+     <input type="text" name="phone_no" value=""></td><br>
+<td colspan="50"><h3>Email ID</h3>
+     <input type="text" name="email" value=""></td><br>
+<td colspan="50"><h3>Counselor Teacher ID</h3><br>
+     <input type="text" name="counselor_teacher_id" value=""></td><br>
+</tr>
+</table><br><br>
+          <input type="submit" name="" value="Add Addmission">
+   
+   <h2 align="left">Upload Picture</h2>
+    <!--<form method=post enctype=multipart/form-data>-->
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+   <br>
+    {{ message }}
+ </body>
+</html>

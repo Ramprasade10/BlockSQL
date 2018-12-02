@@ -1,0 +1,216 @@
+CREATE TRIGGER block1
+         AFTER UPDATE
+            ON test
+      FOR EACH ROW
+BEGIN
+    INSERT INTO test VALUES (
+                         old.usn,
+                         old.i1,
+                         old.i2,
+                         old.tst
+                     );
+    UPDATE test
+       SET tst = (
+               SELECT datetime(CURRENT_TIMESTAMP, "localtime") 
+           )
+     WHERE (tst = old.tst AND 
+            usn = new.usn) OR 
+           (tst = old.tst AND 
+            i1 = new.i1) OR 
+           (tst = old.tst AND 
+            i2 = new.i2);
+END;
+
+
+
+CREATE TRIGGER block2
+         AFTER UPDATE
+            ON marks
+      FOR EACH ROW
+BEGIN
+    INSERT INTO marks VALUES (
+                          old.result_year,
+                          old.result_type,
+                          old.branch,
+                          old.sem,
+                          old.section,
+                          old.usn,
+                          old.course_code,
+                          old.grade,
+                          old.grade_point,
+                          old.credits,
+                          old.int1,
+                          old.int2,
+                          old.int3,
+                          old.cie,
+                          old.see,
+                          old.total_marks,
+                          old.time_stamp,
+                          old.prev_block_hash,
+                          old.block_hash
+                      );
+    UPDATE marks
+       SET prev_block_hash = (
+               SELECT block_hash
+                 FROM marks
+                ORDER BY time_stamp DESC
+                LIMIT 0, 1
+           );
+    UPDATE marks
+       SET time_stamp = (
+               SELECT datetime(CURRENT_TIMESTAMP, "localtime") 
+           )
+     WHERE (time_stamp = old.time_stamp AND 
+            result_year = new.result_year) OR 
+           (time_stamp = old.time_stamp AND 
+            result_type = new.result_type) OR 
+           (time_stamp = old.time_stamp AND 
+            branch = new.branch) OR 
+           (time_stamp = old.time_stamp AND 
+            sem = new.sem) OR 
+           (time_stamp = old.time_stamp AND 
+            section = new.section) OR 
+           (time_stamp = old.time_stamp AND 
+            usn = new.usn) OR 
+           (time_stamp = old.time_stamp AND 
+            course_code = new.course_code) OR 
+           (time_stamp = old.time_stamp AND 
+            grade = new.grade) OR 
+           (time_stamp = old.time_stamp AND 
+            grade_point = new.grade_point) OR 
+           (time_stamp = old.time_stamp AND 
+            credits = new.credits) OR 
+           (time_stamp = old.time_stamp AND 
+            int1 = new.int1) OR 
+           (time_stamp = old.time_stamp AND 
+            int2 = new.int2) OR 
+           (time_stamp = old.time_stamp AND 
+            int3 = new.int3) OR 
+           (time_stamp = old.time_stamp AND 
+            cie = new.cie) OR 
+           (time_stamp = old.time_stamp AND 
+            see = new.see) OR 
+           (time_stamp = old.time_stamp AND 
+            total_marks = new.total_marks) OR 
+           (time_stamp = old.time_stamp AND 
+            prev_block_hash = old.prev_block_hash) OR 
+           (time_stamp = old.time_stamp AND 
+            block_hash = old.block_hash);
+
+
+
+
+
+
+CREATE TRIGGER block1
+         AFTER UPDATE
+            ON marks
+      FOR EACH ROW
+BEGIN
+    INSERT INTO marks VALUES (
+                          old.result_year,
+                          old.result_type,
+                          old.branch,
+                          old.sem,
+                          old.section,
+                          old.usn,
+                          old.course_code,
+                          old.grade,
+                          old.grade_point,
+                          old.credits,
+                          old.int1,
+                          old.int2,
+                          old.int3,
+                          old.cie,
+                          old.see,
+                          old.total_marks,
+                          old.time_stamp,
+                          old.prev_block_hash,
+                          old.block_hash
+                      );
+    UPDATE marks
+       SET prev_block_hash = (
+               SELECT block_hash
+                 FROM marks
+                ORDER BY time_stamp DESC
+                LIMIT 0, 2
+           )
+     WHERE ( (prev_block_hash = old.prev_block_hash AND 
+              result_year = new.result_year) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              result_type = new.result_type) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              branch = new.branch) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              sem = new.sem) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              section = new.section) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              usn = new.usn) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              course_code = new.course_code) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              grade = new.grade) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              grade_point = new.grade_point) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              credits = new.credits) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              int1 = new.int1) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              int2 = new.int2) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              int3 = new.int3) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              cie = new.cie) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              see = new.see) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              total_marks = new.total_marks) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              time_stamp = old.time_stamp) OR 
+             (prev_block_hash = old.prev_block_hash AND 
+              block_hash = old.block_hash) );
+    UPDATE marks
+       SET time_stamp = (
+               SELECT datetime(CURRENT_TIMESTAMP, "localtime") 
+           )
+     WHERE (time_stamp = old.time_stamp AND 
+            result_year = new.result_year) OR 
+           (time_stamp = old.time_stamp AND 
+            result_type = new.result_type) OR 
+           (time_stamp = old.time_stamp AND 
+            branch = new.branch) OR 
+           (time_stamp = old.time_stamp AND 
+            sem = new.sem) OR 
+           (time_stamp = old.time_stamp AND 
+            section = new.section) OR 
+           (time_stamp = old.time_stamp AND 
+            usn = new.usn) OR 
+           (time_stamp = old.time_stamp AND 
+            course_code = new.course_code) OR 
+           (time_stamp = old.time_stamp AND 
+            grade = new.grade) OR 
+           (time_stamp = old.time_stamp AND 
+            grade_point = new.grade_point) OR 
+           (time_stamp = old.time_stamp AND 
+            credits = new.credits) OR 
+           (time_stamp = old.time_stamp AND 
+            int1 = new.int1) OR 
+           (time_stamp = old.time_stamp AND 
+            int2 = new.int2) OR 
+           (time_stamp = old.time_stamp AND 
+            int3 = new.int3) OR 
+           (time_stamp = old.time_stamp AND 
+            cie = new.cie) OR 
+           (time_stamp = old.time_stamp AND 
+            see = new.see) OR 
+           (time_stamp = old.time_stamp AND 
+            total_marks = new.total_marks) OR 
+           (time_stamp = old.time_stamp AND 
+            prev_block_hash = old.prev_block_hash) OR 
+           (time_stamp = old.time_stamp AND 
+            block_hash = old.block_hash);
+END;
+
+END;

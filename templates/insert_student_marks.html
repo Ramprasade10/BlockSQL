@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Update Student Marks</title>
+<link rel="stylesheet" href="static/app.css">
+ </head>
+ <body>
+<div class="sidenav">
+  <a href="/teachers_portal">Dashboard</a><br>
+    <a href="/update_student_marks">Update Student Marks </a><br>
+            <a href="/insert_student_marks">Insert Student Marks </a><br>
+  <a href="/question_papers">Upload Question Papers</a><br>
+</div>                   
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+
+
+   <h1 align="center">Insert Student Marks</h1>
+   <form class="" action="/insert_student_marks" method="post">  
+<table align= "center" style="width:100%">
+<tr>
+<td colspan="50"><h3>USN</h3><br>
+     <input type="text" name="usn" value=""></td><br>
+<td colspan="50"><h3>Semester</h3><br>
+     <input type="number" name="sem" value=""></td><br>
+<td colspan="50"><h3>Course Code</h3><br>
+     <input type="text" name="course_code" value=""></td><br>
+</tr>
+<!--check if colspan correct for the above-->
+<tr>
+<td colspan="50"><h3>Internal Marks 1</h3><br>
+     <input type="number" name="int1" value=""></td><br>
+<td colspan="50"><h3>Internal Marks 2</h3><br>
+     <input type="number" name="int2" value=""></td><br>
+<td colspan="50"><h3>Internal Marks 3</h3><br>
+     <input type="number" name="int3" value=""></td><br>
+</tr>
+<tr>
+<td colspan="50"><h3>Semester End Exam Marks</h3><br>
+     <input type="number" name="see" value=""></td><br>
+          <td colspan="50"><h3>Result Year</h3><br>
+     <input type="text" name="result_year" value=""></td><br>
+    <td colspan="50"><h3>Result Type</h3><br>
+    <select name="result_type">
+		<option value="REGULAR">REGULAR</option>
+		<option value="MUTE">MUTE</option>
+    </select></td><br>
+</tr>
+</table><br><br>
+          <input type="submit" name="" value="Update Marks">
+   </form>
+      {{ message }}
+</div>
+ </body>
+</html>
+
+
+
+
+

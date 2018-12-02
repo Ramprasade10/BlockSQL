@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Execute Query</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css"></head>
+</head> 
+<body>
+<div class="sidenav">
+<a href="/ledger">Login Ledger</a><br>
+<a href="/execute_query">Execute Query</a><br>
+<a href="/check_integrity">Check Integrity</a><br>
+<a href="/student_admission">Student Admission</a><br>
+<a href="/add_teacher">Add teacher</a><br>
+
+</div>
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+<br>
+<h2 align=center>Execute Queries</h2>
+<br><br>  
+<form align=center action="/execute_query" method="post" target="_self">
+  <br>
+  <input type="text" name="query" value="" style="font-size:15pt;height:200px;width:1400px" rows="5" >
+  <br><br>
+<input type="submit" name="" value="Execute Query">
+  
+</form>
+<br><br>
+ {% if rows %}
+ <table align="center" border = "5" style="width:100%;overflow-x:auto;overflow-y:auto;">
+         <tr>
+               {% for items in rows[0] %}
+               <td><b>{{ items }}</td>
+               {% endfor %}
+            </tr>
+         {% for row in rows %}
+            <tr>
+               {% for items in row %}
+               <td>{{ row[items] }}</td>
+               {% endfor %}
+            </tr>
+         {% endfor %}
+      </table>
+{% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+
+--sgpa1
+
+update student_details set sgpa1 =(select ((sum(credits*grade_point))/sum(credits)) from marks
+ where usn=(select usn from student_details where usn='6')and sem='1') where usn='6'
+
+
+--cgpa
+
+update student_details set cgpa =((sgpa1+sgpa2+sgpa3+sgpa4+sgpa5+sgpa6+sgpa7+sgpa8)/(8))  where usn='6'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

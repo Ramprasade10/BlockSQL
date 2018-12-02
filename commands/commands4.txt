@@ -1,0 +1,188 @@
+
+-- created teacher_details table
+CREATE TABLE teacher_details (
+    teacher_id   VARCHAR (10)  PRIMARY KEY,
+    teacher_name VARCHAR (30)  NOT NULL,
+    pwd          VARCHAR (100) NOT NULL,
+    designation  VARCHAR (30)  NOT NULL,
+    doj          DATE          NOT NULL,
+    branch       VARCHAR (45),
+    phone_no     INTEGER (10)  UNIQUE,
+    email        VARCHAR (30)  UNIQUE
+);
+ 
+
+
+
+--created database_admin table
+
+CREATE TABLE database_admin (
+    admin_name VARCHAR (30)  NOT NULL,
+    admin_id   VARCHAR (10)  PRIMARY KEY,
+    pwd        VARCHAR (100) NOT NULL
+);
+
+
+--add missing columns to student_details 
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM student_details;
+
+DROP TABLE student_details;
+
+CREATE TABLE student_details (
+    sgpa1                FLOAT (4, 2),
+    sgpa2                FLOAT (4, 2),
+    sgpa3                FLOAT (4, 2),
+    sgpa4                FLOAT (4, 2),
+    sgpa5                FLOAT (4, 2),
+    sgpa6                FLOAT (4, 2),
+    sgpa7                FLOAT (4, 2),
+    sgpa8                FLOAT (4, 2),
+    cgpa                 FLOAT (4, 2),
+    usn                  VARCHAR (10) NOT NULL,
+    student_name      VARCHAR (30) NOT NULL,
+    sem                  INTEGER (1)  NOT NULL,
+    section              VARCHAR (1)  NOT NULL,
+    branch               VARCHAR (45) NOT NULL,
+    email                VARCHAR (30) NOT NULL
+                                      UNIQUE,
+    phone_no             INTEGER (10) UNIQUE
+                                      NOT NULL,
+    year_start           DATE         NOT NULL,
+    year_end             DATE         NOT NULL,
+    fathers_name         VARCHAR (50),
+    counselor_teacher_id VARCHAR (10) REFERENCES teacher_details (teacher_id) 
+);
+
+INSERT INTO student_details (
+                                sgpa1,
+                                sgpa2,
+                                sgpa3,
+                                sgpa4,
+                                sgpa5,
+                                sgpa6,
+                                sgpa7,
+                                sgpa8,
+                                cgpa,
+                                usn
+                            )
+                            SELECT sgpa1,
+                                   sgpa2,
+                                   sgpa3,
+                                   sgpa4,
+                                   sgpa5,
+                                   sgpa6,
+                                   sgpa7,
+                                   sgpa8,
+                                   cgpa,
+                                   usn
+                              FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--update sems in student_details
+
+update student_details set sem=8 where usn='1';
+update student_details set sem=8 where usn='2';
+update student_details set sem=8 where usn='3';
+update student_details set sem=8 where usn='4';
+update student_details set sem=8 where usn='5';
+update student_details set sem=8 where usn='6';
+update student_details set sem=8 where usn='7';
+update student_details set sem=8 where usn='8';
+update student_details set sem=8 where usn='9';
+update student_details set sem=8 where usn='10';
+
+--update sections
+
+update student_details set section='B' where usn='1';
+update student_details set section='B' where usn='2';
+update student_details set section='B' where usn='3';
+update student_details set section='B' where usn='4';
+update student_details set section='B' where usn='5';
+update student_details set section='A' where usn='6';
+update student_details set section='A' where usn='7';
+update student_details set section='A' where usn='8';
+update student_details set section='A' where usn='9';
+update student_details set section='A' where usn='10';
+
+--update email
+
+update student_details set email="prathikshaurs@gmail.com" where usn='1'
+update student_details set email="sanchita.nandi13@gmail.com" where usn='2'
+update student_details set email="dheeraj@nie.com" where usn='3'
+update student_details set email="raj@nie.com" where usn='4'
+update student_details set email="sampreeth@nie.com" where usn='5'
+update student_details set email="nimisha@nie.com" where usn='6'
+update student_details set email="vrushank@nie.com" where usn='7'
+update student_details set email="nithya@nie.com" where usn='8'
+update student_details set email="vishruth@nie.com" where usn='9'
+update student_details set email="ramprasade10@gmail.com" where usn='10'
+
+--update phone_no
+
+update student_details set phone_no=6728349276 where usn='1'
+update student_details set phone_no=4582932700 where usn='2'
+update student_details set phone_no=9275294837 where usn='3'
+update student_details set phone_no=8734091277 where usn='4'
+update student_details set phone_no=4499220044 where usn='5'
+update student_details set phone_no=3322998844 where usn='6'
+update student_details set phone_no=7744991100 where usn='7'
+update student_details set phone_no=2389430184 where usn='8'
+update student_details set phone_no=3856194044 where usn='9'
+update student_details set phone_no=8372850174 where usn='10'
+
+--update year_start(for all rows)
+
+update student_details set year_start=2013;
+
+--update year_end
+
+update student_details set year_end=2017;
+
+--update fathers_name
+
+update student_details set fathers_name='Ram' where usn='1';
+update student_details set fathers_name='Ravan' where usn='2'
+update student_details set fathers_name='Laxman' where usn='3'
+update student_details set fathers_name='Shravan' where usn='4'
+update student_details set fathers_name='Vrushank' where usn='5'
+update student_details set fathers_name='Sandeep' where usn='6'
+update student_details set fathers_name='Yohan' where usn='7'
+update student_details set fathers_name='Dheeraj' where usn='8'
+update student_details set fathers_name='Naik' where usn='9'
+update student_details set fathers_name='Kumar' where usn='10'
+
+--update counselor_teacher_id
+
+update student_details set counselor_teacher_id=1 where usn='1'
+update student_details set counselor_teacher_id=1 where usn='2'
+update student_details set counselor_teacher_id=2 where usn='3'
+update student_details set counselor_teacher_id=2 where usn='4'
+update student_details set counselor_teacher_id=3 where usn='5'
+update student_details set counselor_teacher_id=3 where usn='6'
+update student_details set counselor_teacher_id=4 where usn='7'
+update student_details set counselor_teacher_id=4 where usn='8'
+update student_details set counselor_teacher_id=5 where usn='9'
+update student_details set counselor_teacher_id=5 where usn='10'
+
+
+--update student_name
+
+update student_details set student_name='Prathiksha' where usn='1' ;
+update student_details set student_name='Sanchita' where usn='2' ;
+update student_details set student_name='Dheeraj' where usn='3' ;
+update student_details set student_name='Raj' where usn='4' ;
+update student_details set student_name='Sampreeth' where usn='5' ;
+update student_details set student_name='Nimisha' where usn='6' ;
+update student_details set student_name='Vrushank' where usn='7' ;
+update student_details set student_name='Nithya' where usn='8' ;
+update student_details set student_name='Vishruth' where usn='9' ;
+update student_details set student_name='Ram Prasad' where usn='10' ;
+

@@ -1,0 +1,1091 @@
+--result year
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    column4,
+    column5,
+    column6,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      column4,
+                      column5,
+                      column6,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         column4,
+                         column5,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--result_type
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    column4,
+    column5,
+    column6,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      column4,
+                      column5,
+                      column6,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         column4,
+                         column5,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--branch
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    column4,
+    column5,
+    column6,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      column4,
+                      column5,
+                      column6,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         column4,
+                         column5,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+--sem
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    sem         INTEGER (1)  NOT NULL,
+    column5,
+    column6,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      column5,
+                      column6,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         column4,
+                         column5,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--section
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    sem         INTEGER (1)  NOT NULL,
+    section     VARCHAR (1)  NOT NULL,
+    column6,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      column6,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         column5,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--usn
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year VARCHAR (10),
+    result_type VARCHAR (7),
+    branch      VARCHAR (3),
+    sem         INTEGER (1)  NOT NULL,
+    section     VARCHAR (1)  NOT NULL,
+    usn         VARCHAR (10) NOT NULL,
+    column7,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      column7,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         column6,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+--student_name
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    column8,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      column8,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         column7,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--course_code
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  PRIMARY KEY,
+    column9,
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      column9,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--grade
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  PRIMARY KEY,
+    grade        VARCHAR (2),
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--course_code
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    column10,
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      column10,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         column8,
+                         column9,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+--grade_point
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    column11,
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      column11,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         column10,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--credits
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    column12
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      column12
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         column11,
+                         column12
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--final
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+--int1
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--int2
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2),
+    int2         INTEGER (2) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--int3
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2),
+    int2         INTEGER (2),
+    int3         INTEGER (2) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--cie
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2),
+    int2         INTEGER (2),
+    int3         INTEGER (2),
+    cie          INTEGER (2) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2,
+                      int3
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2,
+                         int3
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+
+--see
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2),
+    int2         INTEGER (2),
+    int3         INTEGER (2),
+    cie          INTEGER (2),
+    see          INTEGER (3) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2,
+                      int3,
+                      cie
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2,
+                         int3,
+                         cie
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+--total_marks
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM marks;
+
+DROP TABLE marks;
+
+CREATE TABLE marks (
+    result_year  VARCHAR (10),
+    result_type  VARCHAR (7),
+    branch       VARCHAR (3),
+    sem          INTEGER (1)  NOT NULL,
+    section      VARCHAR (1)  NOT NULL,
+    usn          VARCHAR (10) NOT NULL,
+    student_name VARCHAR (30) NOT NULL,
+    course_code  VARCHAR (6)  NOT NULL,
+    grade        VARCHAR (2),
+    grade_point  REAL (4, 2),
+    credits      REAL (2, 1),
+    int1         INTEGER (2),
+    int2         INTEGER (2),
+    int3         INTEGER (2),
+    cie          INTEGER (2),
+    see          INTEGER (3),
+    total_marks  INTEGER (3) 
+);
+
+INSERT INTO marks (
+                      result_year,
+                      result_type,
+                      branch,
+                      sem,
+                      section,
+                      usn,
+                      student_name,
+                      course_code,
+                      grade,
+                      grade_point,
+                      credits,
+                      int1,
+                      int2,
+                      int3,
+                      cie,
+                      see
+                  )
+                  SELECT result_year,
+                         result_type,
+                         branch,
+                         sem,
+                         section,
+                         usn,
+                         student_name,
+                         course_code,
+                         grade,
+                         grade_point,
+                         credits,
+                         int1,
+                         int2,
+                         int3,
+                         cie,
+                         see
+                    FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+
+

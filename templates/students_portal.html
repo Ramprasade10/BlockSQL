@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Student Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+</head> 
+<body>
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/results">Results</a><br>
+<a href="/student_sgpa">Performance Report</a><br>
+<a href="/generate_transcript">Transcript</a><br>
+<a href="/provisional_marks_card">Provisional Markscard</a><br>
+<a href="/update_student_details">Update Details</a><br>
+
+</div>
+
+<div class="main">
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+<br>
+<h2 align="center">STUDENT DASHBOARD</h2>
+<img src="static/user.png" alt="student" width=100 height=100>
+<br><br><br>
+<table align="center" style="width:100%">
+<tr>
+<td colspan="50">Student Name: {{details['student_name']}}</td>
+<td colspan="50">Academic Year: {{details['year_start']}}-{{details['year_end']}}</td>
+<td colspan="50">USN: {{details['usn']}}</td>
+</tr>
+<tr>
+<td colspan="50">Sem: {{details['sem']}}</td>
+<td colspan="50">Section: {{details['section']}}</td>
+<td colspan="50">Branch: {{details['branch']}}</td>
+</tr>
+<tr>
+<td colspan="50">Mobile no.: {{details['phone_no']}}</td>
+<td colspan="50">Email ID: {{details['email']}}</td>
+<td colspan="50">Counselor Name: {{counselor_name}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

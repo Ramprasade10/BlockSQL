@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Request Transcript</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/app.css">
+<!--
+<style>
+
+#button {
+line-height: 12px;
+width: 70px;
+font-size: 8pt;
+font-family: tahoma;
+margin-top: 10px;
+margin-right: 80px;
+position:absolute;
+top:0;
+right:0;
+}
+</style>
+-->
+</head> 
+<body>
+<div class="sidenav">
+<a href="/students_portal">Dashboard</a><br>
+<a href="/results">Results</a><br>
+<a href="/generate_transcript">Transcript</a><br>
+<a href="/provisional_marks_card">Provisional Markscard</a><br>
+<a href="/update_student_details">Update Details</a><br>
+</div>
+<div class="main"> 
+<div id="button">
+<button type="button" onclick="window.location.href='{{ url_for( 'login'  ) }}';">LOGOUT</button>
+</div>
+
+<form action="/generate_transcript" method="post">
+<input type="submit" name="" value="Request Transcript">
+   </form>
+   <br><br>
+   {{message}}
+   </div>
+ </body>
+</html>    

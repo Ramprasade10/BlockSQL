@@ -542,7 +542,6 @@ def prevhash(table):
         # sql=query_db('select block_hash from '+session.get('oper_table')+' order by time_stamp desc limit 0,1')[0] if table=="" else query_db('select block_hash from '+table+' order by time_stamp desc limit 0,1')[0]
         # if occasion="processing":
         sql=query_db('select block_hash from '+table+' order by time_stamp desc limit 0,1')[0]
-        #find a  alternative implementatation with args/kwargs
         if(len(sql)):
             # print(sql["block_hash"])
             return(sql["block_hash"])
@@ -806,8 +805,8 @@ def sendmail(to,mail_subject,mail_body,mail_attach,filename=""):
     s = smtplib.SMTP('smtp.gmail.com', 587) 
     # start TLS for security 
     s.starttls() 
-    # Authentication 
-    s.login(fromaddr, "portalniewelcome") 
+    # Authentication, provide account password here
+    s.login(fromaddr, "password") 
     # Converts the Multipart msg into a string 
     text = msg.as_string() if noattach else 'Subject: {}\n\n{}'.format(mail_subject,mail_body)
     #if noattach else mail_body
@@ -837,5 +836,4 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.secret_key = 'qslkjJjhkNBkjhhJkUJjkjsds'
     app.config['SESSION_TYPE'] = 'filesystem'
-    # pdfkit.from_file("C:\\Users\\Ram prasad\\Google Drive\\lab\\TRANSCRIPT.html","C:\\Users\\Ram prasad\\Google Drive\\lab\\TRANSCRIPT.pdf")
-    app.run(host='127.0.0.1', port=8000, debug=True,threaded=True)
+    app.run(host='0.0.0.0', port=8000, debug=True,threaded=True)

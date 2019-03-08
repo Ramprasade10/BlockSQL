@@ -62,7 +62,7 @@ table.solid2{
 <h4 align=center >TRANSCRIPT</h4>
 <table style="width:48%" align="left" >"""
     html+='<tr><td>Name:&emsp;&emsp;&emsp;&emsp;&emsp;'+student_name+'</td></tr>'
-    html+='<tr><td>Father Name:&emsp;&emsp;'+fathers_name+'</td></tr>'
+    html+="<tr><td>Father's Name:&emsp;&emsp;'+fathers_name+'</td></tr>"
     html+='<tr><td><br></td></tr>'
     html+='</table>'
 

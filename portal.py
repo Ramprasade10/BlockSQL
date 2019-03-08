@@ -307,8 +307,8 @@ def students_portal():
         return render_template("students_portal.html"\
         ,details=rows[0],counselor_name=counselor_name)
 # Works
-@app.route('/ledger', methods=['POST', 'GET'])
-def ledger():
+@app.route('/login_ledger', methods=['POST', 'GET'])
+def login_ledger():
         sql='select * from ledger'
         rows=query_db(sql)
         return render_template("login_ledger.html",rows=rows)
@@ -609,7 +609,6 @@ def results():
             marks=combine_table_results(marks_only,"results")
             return render_template("results.html",rows=marks)
             
-        
         elif grade:
             print("inside grade")
             marks_only=query_db('select course_code,int1,int2,int3,see,cie,grade from marks where usn="'+usn+'" and grade="'+grade+'"')
@@ -696,7 +695,7 @@ def provisional():
                 credit.append(course_details[0]["credits"])
             
         provisional_html_generate.converthtml(name,"Bachelor of Engineering(B.E)",usn,sem,acm_year,branch,course_name,course_code,credit,grade,sgpa,cgpa)
-        makepdf("provisional",usn,sem)
+        generate_provisional_transcript("provisional",usn,sem)
         pdf_path= os.path.join(os.getcwd(),'provisional_cards','provisional_marks_card_'+usn+'_'+str(sem)+'.pdf')
         filename=os.path.basename(pdf_path)
         sendmail("portalnie@gmail.com","Provisional Marks Card Request Generated","Provisional Marks Card generated for USN: "+usn+" and SEM :"+str(sem)+".\nRequest forward to COE's Office for verification and signature.\nForward the Signed copy to principal's office for signature.",open(pdf_path, "rb"),filename)
@@ -718,7 +717,7 @@ def generate_transcript():
             marks.append(combine_table_results(marks_only))
         print(marks)
         transcript_html_generate.converthtml(student_name,usn,fathers_name,branch,marks,cgpa)
-        makepdf("transcript",usn)
+        generate_provisional_transcript("transcript",usn)
         pdf_path= os.path.join(os.getcwd(),'transcripts','transcript_'+usn+'.pdf')
         # print(pdf_path)
         filename=os.path.basename(pdf_path)
@@ -756,20 +755,25 @@ def upload_file():
             return redirect(url_for('upload_file',filename=filename))
     return render_template("question_papers.html")
 #Works
-def makepdf(pdf_type,usn,sem=""):
+def generate_provisional_transcript(pdf_type,usn,sem=""):
     # cur_dir=os.path.dirname(__file__)
     usn=str(usn)
     sem=str(sem)
+
     if pdf_type=="provisional":
         html_path_provisional=os.path.join(os.getcwd(),'provisional_cards','provisional_marks_card_'+usn+'_'+sem+'.html')
         pdf_path_provisional= os.path.join(os.getcwd(),'provisional_cards','provisional_marks_card_'+usn+'_'+sem+'.pdf')
-        pdfkit.from_file(html_path_provisional,pdf_path_provisional) 
+        config = pdfkit.configuration(wkhtmltopdf="C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+
+        pdfkit.from_file(html_path_provisional,pdf_path_provisional, configuration=config)
         set_password(pdf_path_provisional,usn+sem,usn+sem)
         
     if pdf_type=="transcript":
         html_path_transcript=  os.path.join(os.getcwd(),'transcripts','transcript'+usn+'.html')
         pdf_path_transcript= os.path.join(os.getcwd(),'transcripts','transcript_'+usn+'.pdf')
-        pdfkit.from_file(html_path_transcript,pdf_path_transcript) 
+        config = pdfkit.configuration(wkhtmltopdf="C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe")
+
+        pdfkit.from_file(html_path_transcript,pdf_path_transcript, configuration=config)
         set_password(pdf_path_transcript,usn,usn)
         
 #Works
@@ -806,7 +810,7 @@ def sendmail(to,mail_subject,mail_body,mail_attach,filename=""):
     # start TLS for security 
     s.starttls() 
     # Authentication, provide account password here
-    s.login(fromaddr, "password") 
+    s.login(fromaddr, "portalniewelcome") 
     # Converts the Multipart msg into a string 
     text = msg.as_string() if noattach else 'Subject: {}\n\n{}'.format(mail_subject,mail_body)
     #if noattach else mail_body
@@ -836,4 +840,4 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.secret_key = 'qslkjJjhkNBkjhhJkUJjkjsds'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='0.0.0.0', port=8000, debug=True,threaded=True)
+    app.run(host='127.0.0.1', port=8000, debug=True,threaded=True)
